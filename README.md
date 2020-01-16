@@ -1,2 +1,2 @@
-# soon-ui
-基于vue的ui小插件整合
+# fine-ui
+我的vue UI库
