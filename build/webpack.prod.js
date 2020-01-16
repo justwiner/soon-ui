@@ -1,38 +1,46 @@
-"use strict";
+'use strict';
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const path = require('path');
 const vueLoaderConfig = require('./vue-loader');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const nodeExternals = require('webpack-node-externals');
+const markdownLoaderConfig = require('./markdown-loader');
+
+
 let webpackConfig = merge(common, {
     devtool: false,
-    entry: {
-        soon_ui: path.resolve(__dirname,'../src/index.js')
+    entry:{
+        site: './src/site/main.js'
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
-        filename: 'soon_ui.js',
-        library: 'soon_ui',
-        libraryTarget: 'umd'
+        filename: './[name].[hash].js'
     },
+    
     module: {
-        rules: vueLoaderConfig.styleLoaders({extract:true})
+        rules: vueLoaderConfig.styleLoaders()
     },
-    externals: [nodeExternals()],
     plugins: [
-       
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: '"production"'
-            }
-        }), 
+            },
+        }),
         new CleanWebpackPlugin(['dist'],{
             root: path.resolve(__dirname, "../")
+        }),
+        new webpack.NamedModulesPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: path.resolve(__dirname, `../src/site/entry.html`),
+            inject: true,
+            title: 'soonUI'
         })
     ]
 });
+
+webpackConfig.module.rules.push(markdownLoaderConfig);
 module.exports = webpackConfig;

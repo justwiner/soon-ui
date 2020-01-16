@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "快速开发，小插件、ui整合",
   "scripts": {
+    "public": "cross-env NODE_ENV=production webpack --config build/webpack.public.js --progress",
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.js --progress",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.js --progress"
   },
