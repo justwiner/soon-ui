@@ -16,7 +16,7 @@
     "babel-runtime": "^6.26.0",
     "element-resize-detector": "^1.2.0",
     "element-ui": "^2.4.11",
-    "markdown-it": "^8.4.2",
+    "markdown-it": "^12.3.2",
     "popper.js": "^1.14.6"
   },
   "devDependencies": {
@@ -60,7 +60,7 @@
     "karma-spec-reporter": "^0.0.31",
     "karma-webpack": "^2.0.6",
     "lodash": "^4.17.10",
-    "markdown-it": "^8.4.2",
+    "markdown-it": "^12.3.2",
     "markdown-it-anchor": "^5.0.2",
     "mockjs": "^1.0.1-beta3",
     "moment": "^2.22.2",
