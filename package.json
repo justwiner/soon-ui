@@ -64,7 +64,7 @@
     "markdown-it-anchor": "^5.0.2",
     "mockjs": "^1.0.1-beta3",
     "moment": "^2.22.2",
-    "node-sass": "^4.7.2",
+    "node-sass": "^7.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "phantomjs-prebuilt": "^2.1.16",
     "postcss-loader": "^2.0.9",
